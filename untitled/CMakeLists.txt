@@ -18,6 +18,15 @@ add_executable(untitled
   classunit.h classunit.cpp
   methodunit.h methodunit.cpp
   printoperatorunit.h printoperatorunit.cpp
+  cpp_classunit.h cpp_classunit.cpp
+  cpp_printoperatorunit.h cpp_printoperatorunit.cpp
+  cpp_methodunit.h cpp_methodunit.cpp
+  java_classunit.h java_classunit.cpp
+  java_printoperatorunit.h java_printoperatorunit.cpp
+  java_methodunit.h java_methodunit.cpp
+  csharp_classunit.h csharp_classunit.cpp
+  csharp_printoperatorunit.h csharp_printoperatorunit.cpp
+  csharp_methodunit.h csharp_methodunit.cpp
 )
 target_link_libraries(untitled PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 

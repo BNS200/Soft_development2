@@ -7,7 +7,9 @@
 class PrintOperatorUnit : public Unit {
 public:
     explicit PrintOperatorUnit(const std::string& text);
-    std::string compile(unsigned int level) const override;
+    std::string compile(unsigned int level) const override final;
+    virtual std::string getPrintSyntax() const = 0;
+    std::string getText() const;
 private:
     std::string m_text;
 };
