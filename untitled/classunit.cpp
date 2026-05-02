@@ -29,3 +29,11 @@ std::string ClassUnit::compile(unsigned int level) const {
     result += generateShift(level) + "};\n";
     return result;
 }
+
+std::string ClassUnit::getName() const {
+    return m_name;
+}
+
+const std::vector<std::vector<std::shared_ptr<Unit>>>& ClassUnit::getFields() const {
+    return m_fields;
+}

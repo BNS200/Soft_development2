@@ -18,6 +18,10 @@ public:
 
     std::string compile(unsigned int level = 0) const override;
 
+    std::string getName() const;
+
+    const std::vector<std::vector<std::shared_ptr<Unit>>>& getFields() const;
+
 private:
     std::string m_name;
     using Fields = std::vector<std::shared_ptr<Unit>>;
