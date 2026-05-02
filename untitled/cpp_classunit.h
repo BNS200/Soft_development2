@@ -11,7 +11,7 @@ public:
         PRIVATE,
     };
 
-    explicit CppClassUnit(const std::string& name);
+    explicit CppClassUnit(const std::string& name, size_t fieldsSize);
     virtual ~CppClassUnit() = default;
     const std::vector<std::string> getAccessModifiers() const override;
 

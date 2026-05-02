@@ -8,15 +8,21 @@
 
 class MethodUnit : public Unit {
 public:
-    enum Modifier {
-        STATIC = 1,
-        CONST = 1 << 1,
-        VIRTUAL = 1 << 2
-    };
-public:
-    MethodUnit(const std::string& name, const std::string& returnType, Flags flags);
+    explicit MethodUnit(const std::string& name, const std::string& returnType, Flags flags);
+
     void add(const std::shared_ptr<Unit>& unit, Flags = 0) override;
+
     std::string compile(unsigned int level = 0) const override;
+
+    virtual ~MethodUnit() = default;
+
+    virtual std::string compileModifiers() const = 0;
+    virtual std::string compileSignature() const = 0;
+
+    Flags getFlags() const;
+    std::string getReturnType() const;
+    std::string getName() const;
+
 private:
     std::string m_name;
     std::string m_returnType;

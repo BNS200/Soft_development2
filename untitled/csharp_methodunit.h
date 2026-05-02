@@ -2,10 +2,11 @@
 #define CSHARP_METHODUNIT_H
 #include "methodunit.h"
 
-class csharp_methodunit : public MethodUnit
+class CSharpMethodUnit : public MethodUnit
 {
 public:
-    csharp_methodunit();
+    CSharpMethodUnit();
+
 };
 
 #endif // CSHARP_METHODUNIT_H

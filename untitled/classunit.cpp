@@ -2,13 +2,8 @@
 
 // const std::vector<std::string> ClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};
 
-ClassUnit::ClassUnit(const std::string& name) : m_name(name){
-    m_fields.resize(getAccessModifiers().size());
-}
-
-const std::vector<std::string> ClassUnit::getAccessModifiers() const {
-    std::vector<std::string> modifiers = {"public", "protected", "private"};
-    return modifiers;
+ClassUnit::ClassUnit(const std::string& name, size_t fieldsSize) : m_name(name){
+    m_fields.resize(fieldsSize);
 }
 
 void ClassUnit::add(const std::shared_ptr<Unit>& unit, Flags flags) {

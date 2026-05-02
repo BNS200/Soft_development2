@@ -9,21 +9,24 @@ void MethodUnit::add(const std::shared_ptr<Unit>& unit, Flags){
 
 std::string MethodUnit::compile(unsigned int level) const {
     std::string result = generateShift(level);
-    if(m_flags & STATIC){
-        result += "static ";
-    }
-    if(m_flags & VIRTUAL){
-        result += "virtual ";
-    }
-    result += m_returnType + " ";
-    result += m_name + "()";
-    if(m_flags & CONST){
-        result += " const";
-    }
+    result += compileModifiers();
+    result += compileSignature();
     result += " {\n";
     for(const auto& b : m_body){
         result += b->compile(level + 1);
     }
     result += generateShift(level) + "}\n";
     return result;
+}
+
+std::string MethodUnit::getName() const {
+    return m_name;
+}
+
+std::string MethodUnit::getReturnType() const {
+    return m_returnType;
+}
+
+MethodUnit::Flags MethodUnit::getFlags() const {
+    return m_flags;
 }

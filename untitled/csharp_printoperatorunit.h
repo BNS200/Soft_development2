@@ -5,7 +5,7 @@
 class CSharpPrintOperatorUnit : public PrintOperatorUnit
 {
 public:
-    CSharpPrintOperatorUnit();
+    CSharpPrintOperatorUnit(std::string );
 };
 
 #endif // CSHARP_PRINTOPERATORUNIT_H
