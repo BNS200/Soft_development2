@@ -5,7 +5,10 @@
 class JavaPrintOperatorUnit : public PrintOperatorUnit
 {
 public:
-    JavaPrintOperatorUnit();
+    explicit JavaPrintOperatorUnit(const std::string& text);
+    virtual ~JavaPrintOperatorUnit() = default;
+
+    std::string getPrintSyntax() const override;
 };
 
 #endif // JAVA_PRINTOPERATORUNIT_H
