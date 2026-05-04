@@ -5,7 +5,10 @@
 class CSharpPrintOperatorUnit : public PrintOperatorUnit
 {
 public:
-    CSharpPrintOperatorUnit(std::string );
+    explicit CSharpPrintOperatorUnit(const std::string& text);
+    virtual ~CSharpPrintOperatorUnit() = default;
+
+    std::string getPrintSyntax() const override;
 };
 
 #endif // CSHARP_PRINTOPERATORUNIT_H
