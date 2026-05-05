@@ -31,7 +31,5 @@ std::string CSharpClassUnit::compile(unsigned int level) const
             result += f->compile(level + 1);
         }
     }
-
-    result += generateShift(level) + "}\n";
-    return result;
+    return result += generateShift(level) + "}\n";
 }
