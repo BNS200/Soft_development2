@@ -22,6 +22,7 @@ public:
     Flags getFlags() const;
     std::string getReturnType() const;
     std::string getName() const;
+    std::vector<std::shared_ptr<Unit>> getBody() const;
 
 private:
     std::string m_name;

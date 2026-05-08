@@ -30,3 +30,7 @@ std::string MethodUnit::getReturnType() const {
 MethodUnit::Flags MethodUnit::getFlags() const {
     return m_flags;
 }
+
+std::vector<std::shared_ptr<Unit>> MethodUnit::getBody() const {
+    return m_body;
+}

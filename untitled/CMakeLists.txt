@@ -27,6 +27,7 @@ add_executable(untitled
   csharp_classunit.h csharp_classunit.cpp
   csharp_printoperatorunit.h csharp_printoperatorunit.cpp
   csharp_methodunit.h csharp_methodunit.cpp
+  abstractfactory.h abstractfactory.cpp
 )
 target_link_libraries(untitled PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 

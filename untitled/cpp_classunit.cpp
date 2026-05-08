@@ -2,7 +2,7 @@
 
 CppClassUnit::CppClassUnit(const std::string& name, size_t fieldsSize) : ClassUnit(name, fieldsSize){}
 
-const std::vector<std::string> ClassUnit::getAccessModifiers() const {
+const std::vector<std::string> CppClassUnit::getAccessModifiers() const {
     std::vector<std::string> modifiers = {"public", "protected", "private"};
     return modifiers;
 }
