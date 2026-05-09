@@ -5,7 +5,7 @@
 class CSharpClassUnit : public ClassUnit
 {
 public:
-    explicit CSharpClassUnit(const std::string& name, size_t fieldSize, std::string classModifier);
+    explicit CSharpClassUnit(const std::string& name, size_t fieldSize);
     virtual ~CSharpClassUnit() = default;
 
     enum AccessModifier {
@@ -18,11 +18,27 @@ public:
         PUBLIC
     };
 
+    enum ClassModifier {
+        NONE = 0,
+        PUBLIC_CLASS = 1,
+        INTERNAL_CLASS = 1 << 1,
+        ABSTRACT_CLASS = 1 << 2,
+        SEALED_CLASS = 1 << 3,
+        STATIC_CLASS = 1 << 4,
+        PARTIAL_CLASS = 1 << 5
+
+    };
+
     const std::vector<std::string> getAccessModifiers() const override;
     std::string compile(unsigned int level) const override;
+    const std::string getClassModifier() const;
+
+
+    void setClassModifier(Flags someClassModifier);
+    void addClassModifier(Flags someClassModifier);
 
 private:
-    std::string m_classModifier;
+    Flags m_classModifier;
 };
 
 #endif // CSHARP_CLASSUNIT_H
