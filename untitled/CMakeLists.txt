@@ -30,6 +30,7 @@ add_executable(untitled
   abstractfactory.h abstractfactory.cpp
   cppfactory.h cppfactory.cpp
   csharpfactory.h csharpfactory.cpp
+  javafactory.h javafactory.cpp
 )
 target_link_libraries(untitled PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 
