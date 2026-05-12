@@ -5,7 +5,7 @@
 class CSharpClassUnit : public ClassUnit
 {
 public:
-    explicit CSharpClassUnit(const std::string& name, size_t fieldSize);
+    explicit CSharpClassUnit(const std::string& name);
     virtual ~CSharpClassUnit() = default;
 
     enum AccessModifier {

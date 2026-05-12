@@ -9,7 +9,9 @@
 class CppFactory : public AbstractFactory
 {
 public:
-    std::shared_ptr<ClassUnit> createClassUnit(const std::string& name, size_t fieldsSize) override;
+    virtual ~CppFactory() = default;
+
+    std::shared_ptr<ClassUnit> createClassUnit(const std::string& name) override;
     std::shared_ptr<MethodUnit> createMethodUnit(const std::string& name, const std::string& returnType, Unit::Flags flags) override;
     std::shared_ptr<PrintOperatorUnit> createPrintOperatorUnit(const std::string& text) override;
 

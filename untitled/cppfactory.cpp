@@ -2,8 +2,8 @@
 
 // CppFactory::CppFactory() {}
 
-std::shared_ptr<ClassUnit> CppFactory::createClassUnit(const std::string& name, size_t fieldsSize){
-    return std::shared_ptr<CppClassUnit>(new CppClassUnit(name, fieldsSize));
+std::shared_ptr<ClassUnit> CppFactory::createClassUnit(const std::string& name){
+    return std::shared_ptr<CppClassUnit>(new CppClassUnit(name));
 }
 
 std::shared_ptr<MethodUnit> CppFactory::createMethodUnit(const std::string& name, const std::string& returnType, Unit::Flags flags){

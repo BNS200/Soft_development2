@@ -18,7 +18,7 @@ public:
         FINAL_CLASS = 1 << 2
     };
 
-    explicit JavaClassUnit(const std::string& name, size_t fieldsSize);
+    explicit JavaClassUnit(const std::string& name);
     virtual ~JavaClassUnit() = default;
 
     const std::vector<std::string> getAccessModifiers() const override;

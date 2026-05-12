@@ -1,7 +1,7 @@
 #include "java_classunit.h"
 
-JavaClassUnit::JavaClassUnit(const std::string& name, size_t sizeFields)
-    : ClassUnit(name, sizeFields), m_classModifier(ClassModifier::PUBLIC_CLASS){}
+JavaClassUnit::JavaClassUnit(const std::string& name)
+    : ClassUnit(name, 4), m_classModifier(ClassModifier::PUBLIC_CLASS){}
 
 void JavaClassUnit::setClassModifier(Flags someClassModifier){
     m_classModifier = someClassModifier;
@@ -36,7 +36,7 @@ const std::string JavaClassUnit::getClassModifier() const {
 }
 
 std::string JavaClassUnit::compile(unsigned int level) const {
-    std::string result = generateShift(level) + getClassModifier() + " " + getName() + "\n";
+    std::string result = generateShift(level) + getClassModifier() + "class " + getName() + "\n";
 
     const auto& modifiers = getAccessModifiers();
     for (int i = 0; i < getFields().size (); i++){
@@ -44,7 +44,7 @@ std::string JavaClassUnit::compile(unsigned int level) const {
             if (i < modifiers.size() && !modifiers[i].empty()){
                 result += generateShift(level + 1) + modifiers[i] + " ";
             } else if (i == DEFAULT) {
-                result += generateShift(level + 1);
+                result += generateShift(level);
             }
             result += f->compile(level + 1);
         }
