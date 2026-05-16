@@ -157,4 +157,4 @@
 
 ---
 ### 2.3 UML диаграмма
-https://app.diagrams.net/#G12QhGn-Jpa18bUZUv7fqqazJbKnjRQhR5#%7B%22pageId%22%3A%22dDzy2u72NRlW93BvClvD%22%7D
+https://drive.google.com/file/d/12QhGn-Jpa18bUZUv7fqqazJbKnjRQhR5/view?usp=sharing
