@@ -158,3 +158,78 @@
 ---
 ### 2.3 UML диаграмма
 https://drive.google.com/file/d/12QhGn-Jpa18bUZUv7fqqazJbKnjRQhR5/view?usp=sharing
+
+## 3. Инструкция пользователя
+
+### 3.1 Сборка программы
+
+**Требования для сборки:**
+- Qt: версия 5 или 6 
+- CMake: версия 3.1 или выше
+- Компилятор: с поддержкой C++17
+
+**Инструкция по сборке (macOS/Linux):**
+- Настройка проекта: `cmake -B build -S .`
+- Компиляция проекта: `cmake --build build`
+- Запуск программы: `./build/project_name`
+
+### 3.2 Пример работы программы
+
+**Пример: Генерация C++ кода**
+
+```cpp
+#include <iostream>
+#include <memory>
+#include "classunit.h"
+#include "methodunit.h"
+#include "printoperatorunit.h"
+#include "cppfactory.h"
+#include "csharpfactory.h"
+#include "javafactory.h"
+
+
+
+int main() {
+    // Создаем фабрику для C++
+    auto factory = std::make_shared<CppFactory>();
+    
+    // Создаем класс с именем MyClass
+    auto myClass = factory->createClassUnit("MyClass");
+    
+    // Создаем публичный метод
+    auto method1 = factory->createMethodUnit("test1", "void", 0);
+    
+    // Создаем приватный статический метод
+    auto method2 = factory->createMethodUnit("test2", "void", CppMethodUnit::STATIC);
+    
+    // Создаем метод с телом
+    auto method3 = factory->createMethodUnit("test3", "void", 0);
+    auto print = factory->createPrintOperatorUnit("Hello, World!\\n");
+    method3->add(print);
+    
+    // Добавляем методы в класс с разными модификаторами доступа
+    myClass->add(method1, CppClassUnit::PUBLIC);   
+    myClass->add(method2, CppClassUnit::PRIVATE);  
+    myClass->add(method3, CppClassUnit::PUBLIC);  
+    
+    std::cout << myClass->compile(0);
+    
+    return 0;
+}
+```
+**Вывод программы:**
+```cpp
+class MyClass {
+  public:
+    void test1() {
+    }
+    void test3() {
+      std::cout << "Hello, World!\n"<< std::endl;
+    }
+
+  private:
+    static void test2() {
+    }
+
+};
+```
