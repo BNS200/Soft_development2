@@ -15,7 +15,8 @@ public:
         PROTECTED,
         INTERNAL,
         PROTECTED_INTERNAL,
-        PUBLIC
+        PUBLIC,
+        PACKAGE_PRIVATE
     };
 
     enum ClassModifier {

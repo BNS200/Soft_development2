@@ -9,7 +9,7 @@ public:
         PUBLIC = 0,
         PROTECTED = 1,
         PRIVATE = 2,
-        DEFAULT = 3
+        PACKAGE_PRIVATE = 3
     };
     enum ClassModifier {
         NONE = 0,

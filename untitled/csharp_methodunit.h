@@ -17,6 +17,9 @@ public:
     explicit CSharpMethodUnit(const std::string& name, const std::string& returnType, Flags flags);
     virtual ~CSharpMethodUnit() = default;
 
+    std::string compile(unsigned int level = 0) const override;
+
+
     std::string compileModifiers() const override;
     std::string compileSignature() const override;
 

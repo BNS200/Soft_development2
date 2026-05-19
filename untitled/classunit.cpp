@@ -1,7 +1,5 @@
 #include "classunit.h"
 
-// const std::vector<std::string> ClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};
-
 ClassUnit::ClassUnit(const std::string& name, size_t fieldsSize) : m_name(name){
     m_fields.resize(fieldsSize);
 }
@@ -24,13 +22,12 @@ std::string ClassUnit::compile(unsigned int level) const {
         for(const auto& f : m_fields[i]) {
             result += f->compile(level + 2);
         }
-        result += "\n";
     }
     result += generateShift(level) + "};\n";
     return result;
 }
 
-std::string ClassUnit::getName() const {
+const std::string& ClassUnit::getName() const {
     return m_name;
 }
 

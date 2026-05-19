@@ -1,7 +1,7 @@
 #include "csharp_classunit.h"
 
 CSharpClassUnit::CSharpClassUnit(const std::string& name)
-    : ClassUnit(name, 7), m_classModifier(INTERNAL_CLASS) {}
+    : ClassUnit(name, 8), m_classModifier(INTERNAL_CLASS) {}
 
 
 void CSharpClassUnit::setClassModifier(Flags someModifier){
@@ -44,24 +44,26 @@ const std::vector<std::string> CSharpClassUnit::getAccessModifiers() const{
         "protected",
         "internal",
         "protected internal",
-        "public"
+        "public",
+        ""
     };
     return modifiers;
 }
 
 std::string CSharpClassUnit::compile(unsigned int level) const
 {
-    std::string result = generateShift(level) + getClassModifier() + "class " + getName() + "\n";
-    result += generateShift(level) + "{\n";
+    std::string result = generateShift(level) + getClassModifier() + "class " + getName() + " {\n";
 
     const auto& modifiers = getAccessModifiers();
 
     for (size_t i = 0; i < getFields().size(); ++i) {
         for (const auto& f : getFields()[i]) {
             if (i < modifiers.size() && !modifiers[i].empty()) {
-                result += generateShift(level + 1) + modifiers[i];
+                result += generateShift(level + 1) + modifiers[i] + " ";
+            } else if (i == PACKAGE_PRIVATE) {
+            result += generateShift(level + 1);
             }
-            result += f->compile(level + 1);
+            result += f->compile(level);
         }
     }
     return result += generateShift(level) + "}\n";

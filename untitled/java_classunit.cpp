@@ -36,17 +36,17 @@ const std::string JavaClassUnit::getClassModifier() const {
 }
 
 std::string JavaClassUnit::compile(unsigned int level) const {
-    std::string result = generateShift(level) + getClassModifier() + "class " + getName() + "\n";
+    std::string result = generateShift(level) + getClassModifier() + "class " + getName() + " {\n";
 
     const auto& modifiers = getAccessModifiers();
     for (int i = 0; i < getFields().size (); i++){
         for (const auto& f : getFields()[i]){
             if (i < modifiers.size() && !modifiers[i].empty()){
                 result += generateShift(level + 1) + modifiers[i] + " ";
-            } else if (i == DEFAULT) {
-                result += generateShift(level);
+            } else if (i == PACKAGE_PRIVATE) {
+                result += generateShift(level + 1);
             }
-            result += f->compile(level + 1);
+            result += f->compile(level);
         }
     }
     return result += generateShift(level) + "}\n";

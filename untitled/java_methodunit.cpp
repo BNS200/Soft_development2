@@ -35,14 +35,14 @@ std::string JavaMethodUnit::compile(unsigned int level) const {
     result += compileModifiers();
     result += compileSignature();
 
-    if (getFlags() & ABSTRACT) {
+    if (getFlags() & ABSTRACT || getFlags() & NATIVE) {
         result += ";\n";
     } else {
         result += " {\n";
         for (const auto& b : getBody()) {
-            result += b->compile(level + 1);
+            result += b->compile(level + 2);
         }
-        result += generateShift(level) + "}\n";
+        result += generateShift(level + 1) + "}\n";
     }
     return result;
 }
